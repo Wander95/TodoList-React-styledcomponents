@@ -1,1 +1,4 @@
-export default './Card.View.tsx';
+import Card from './Card.View'
+
+
+export default Card;
