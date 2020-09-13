@@ -1,26 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { hot } from 'react-hot-loader/root';
+import React,{ Fragment, FC} from 'react';
+import { Normalize } from 'styled-normalize';
+import GlobalStyle from 'Assets/styles/global'
 
-function App() {
+const App: FC = ()=>{
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Normalize />
+      <GlobalStyle />
+      klk
+    </Fragment>
   );
 }
 
-export default App;
+export default hot(App);
