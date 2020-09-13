@@ -8,7 +8,6 @@ const App: FC = ()=>{
     <Fragment>
       <Normalize />
       <GlobalStyle />
-      klk
     </Fragment>
   );
 }
