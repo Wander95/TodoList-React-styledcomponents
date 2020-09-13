@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export default {
   button: styled.div`
     background-color: #4CAF50; /* Green */
@@ -14,7 +13,9 @@ export default {
   `,
 
   iconButton:styled.div`
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    padding: 0.35em;
   `
-
-
 }
