@@ -1,10 +1,12 @@
-import React,{ FC } from 'react'
+import React,{ FC } from 'react';
+import * as MainViewStyles from './Main.styled';
 
+const { Container } = MainViewStyles;
 const MainView:FC = ()=> {
   return (
-    <div>
+    <Container>
       Erase una vez
-    </div>
+    </Container>
   )
 }
 

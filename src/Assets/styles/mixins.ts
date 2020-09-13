@@ -10,6 +10,7 @@ export default {
   centralize:()=>`
     justify-content: center;
     align-items: center;
+    margin: auto;
   `
 
 }

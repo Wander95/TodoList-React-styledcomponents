@@ -17,5 +17,8 @@ export default {
     height: 2.5rem;
     border-radius: 50%;
     padding: 0.35em;
+
+    min-width: 10ch;
+    min-height: 44px;
   `
 }
