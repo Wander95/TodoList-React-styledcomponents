@@ -1,8 +1,6 @@
 import React,{ FC,ReactChildren } from 'react';
-import * as CardStyles from './Card.styled';
+import { Container } from './Card.styled';
 
-
-const { Container } = CardStyles;
 
 export interface CardProps {
   children:FC<ReactChildren>

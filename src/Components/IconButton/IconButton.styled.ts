@@ -10,5 +10,6 @@ export const IconButton = styled(base.iconButton)`
   background-color:${({theme})=>theme.colors.primary.lightYellow};
   display:flex;
   ${mixins.centralize}
-
+  font-size:1.8rem;
+  font-weight:500;
 `;

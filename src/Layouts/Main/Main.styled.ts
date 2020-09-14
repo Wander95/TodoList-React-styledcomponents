@@ -7,3 +7,11 @@ export const Container = styled.div`
   height:100vh ;
   width:100%;
 `;
+
+
+export const Header = styled.h2`
+  font-weight:500;
+  font-size:1.9rem;
+
+  color:${({theme})=>theme.colors.primary.yellow};
+`;

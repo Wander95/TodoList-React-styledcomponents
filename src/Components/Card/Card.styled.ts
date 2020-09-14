@@ -6,6 +6,6 @@ export const Container = styled.div`
   height:80%;
   width: 20rem;
 
-  
   ${mixins.centralize}
+  flex-direction:column;
 `;
