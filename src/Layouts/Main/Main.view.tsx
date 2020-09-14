@@ -1,15 +1,20 @@
 import { Card } from 'Components';
 import React,{ FC } from 'react';
-import * as MainViewStyles from './Main.styled';
+import { Container } from './Main.styled';
 import { ThemeProvider } from 'styled-components';
 import { Theme } from 'Assets/styles/theme'
+import IconButton from 'Components/IconButton';
 
-const { Container } = MainViewStyles;
+
 const MainView:FC = ()=> {
   return (
     <ThemeProvider theme={Theme}>
       <Container>
-        <Card />
+        <Card >
+          <IconButton onClick={()=>{}}>
+            +
+          </IconButton>
+        </Card>
       </Container>
     </ThemeProvider>
   )

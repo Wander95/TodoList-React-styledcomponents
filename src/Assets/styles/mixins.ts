@@ -8,9 +8,9 @@ export default {
                 0 32px 64px rgba(0,0,0,0.07);
   `,
   centralize:()=>`
+    display:flex;
     justify-content: center;
     align-items: center;
-    margin: auto;
   `
 
 }

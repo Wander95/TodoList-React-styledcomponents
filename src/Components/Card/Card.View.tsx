@@ -12,7 +12,6 @@ const Card:FC = (props)=> {
   return (
     <Container>
       {children}
-      asdasd
     </Container>
   )
 }

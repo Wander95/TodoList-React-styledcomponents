@@ -18,7 +18,7 @@ export default {
     border-radius: 50%;
     padding: 0.35em;
 
-    min-width: 10ch;
-    min-height: 44px;
+    min-width: 2rem;
+    min-height: 2rem;
   `
 }
