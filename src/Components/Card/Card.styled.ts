@@ -1,8 +1,10 @@
 import styled from 'styled-components';
-//import mixins from 'Assets/styles/mixins';
+import mixins from 'Assets/styles/mixins';
 
 export const Container = styled.div`
-  background-color: ${({theme})=>theme.colors.primary.black};
-  height:50rem;
+  background-color: ${({theme:{colors}})=> colors.primary.lightBlack};
+  height:80%;
+  width: 20rem;
 
+  ${mixins.centralize}
 `;

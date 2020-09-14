@@ -7,7 +7,7 @@ const Theme: DefaultTheme = {
     medium:'10px',
     strong:'15px'
   },
-  colors: colors,
+  colors,
 }
 
 export { Theme }
