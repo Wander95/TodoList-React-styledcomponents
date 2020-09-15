@@ -1,5 +1,6 @@
 import { DefaultTheme } from 'styled-components'
 import colors from './colors';
+import fonts from './fonts'
 
 const Theme: DefaultTheme = {
   borderRadius: {
@@ -8,6 +9,7 @@ const Theme: DefaultTheme = {
     strong:'15px'
   },
   colors,
+  fonts
 }
 
 export { Theme }

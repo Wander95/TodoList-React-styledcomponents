@@ -10,14 +10,24 @@ export const Container = styled.div`
 
 
 export const Header = styled.h2`
-  font-weight:500;
+  font-weight:600;
   font-size:1.9rem;
+  letter-spacing:2px;
 
-  color:${({theme})=>theme.colors.primary.yellow};
+  color:
+  ${({theme})=>
+    theme.colors.primary.yellow
+  };
 `;
 
 export const SummaryContainer = styled.div`
-
+  display:flex;
+  justify-content:space-between;
+  width: 70%;
+  color:
+  ${({theme})=>
+    theme.colors.primary.yellow
+  };
 `;
 
 export const SummaryCount = styled.span`

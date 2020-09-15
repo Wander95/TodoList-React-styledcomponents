@@ -20,5 +20,19 @@ export default {
 
     min-width: 2rem;
     min-height: 2rem;
+  `,
+
+  span:styled.span`
+    color: 
+    ${({theme:{colors}})=> 
+      colors.primary.lightYellow
+    };
+    
+    font-weight: 500;
+    font-size: 1.5em;
+    letter-spacing: -0.005em;
+
+    /* identical to box height */
+    letter-spacing: -0.005em;
   `
 }

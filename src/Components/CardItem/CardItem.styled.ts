@@ -1,26 +1,14 @@
 import styled from 'styled-components';
+import base from 'Assets/styles/base';
 
 export const Container = styled.div`
   display:flex;
 `;
 
-export const Name = styled.span`
-  color: ${({theme:{colors}})=> colors.primary.lightYellow};
-  font-weight: 600;
-  font-size: 1.5em;
-  line-height: 36px;
-  
-  /* identical to box height */
+export const Name = styled(base.span)`
   width: 13rem;
-  letter-spacing: -0.005em;
 `;
 
-export const Price = styled.span`
-  color: ${({theme:{colors}})=> colors.primary.lightYellow};
-  font-weight: 600;
-  font-size: 1.5em;
-  line-height: 36px;
-  /* identical to box height */
+export const Price = styled(base.span)`
   width: 3rem;
-  letter-spacing: -0.005em;
 `;
