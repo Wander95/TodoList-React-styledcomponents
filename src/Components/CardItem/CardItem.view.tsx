@@ -2,8 +2,8 @@ import React,{ FC } from 'react'
 import { Container,Name,Price } from './CardItem.styled'
 
 export interface ICardItem {
-  name:string,
-  price:number
+  name?:string,
+  price?:number
 }
 const CardItem:FC<ICardItem> = (props)=> {
   const { name,price } = props;
@@ -17,7 +17,7 @@ const CardItem:FC<ICardItem> = (props)=> {
 }
 
 CardItem.defaultProps = {
-  name:'No name Assigned',
+  name:'No name',
   price: 0
 }
 

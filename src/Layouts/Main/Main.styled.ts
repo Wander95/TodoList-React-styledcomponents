@@ -15,3 +15,13 @@ export const Header = styled.h2`
 
   color:${({theme})=>theme.colors.primary.yellow};
 `;
+
+export const SummaryContainer = styled.div`
+
+`;
+
+export const SummaryCount = styled.span`
+
+`;
+
+export const SummaryPrice = styled.span``;

@@ -1,9 +1,8 @@
-import { Card } from 'Components';
 import React,{ FC } from 'react';
 import { Container, Header } from './Main.styled';
 import { ThemeProvider } from 'styled-components';
 import { Theme } from 'Assets/styles/theme'
-import IconButton from 'Components/IconButton';
+import { IconButton,CardItem,Card } from 'Components';
 
 
 const MainView:FC = ()=> {
@@ -12,6 +11,9 @@ const MainView:FC = ()=> {
       <Container>
         <Card>
           <Header>Todo Market</Header>
+          <CardItem />
+          <CardItem />
+          <CardItem />
           <IconButton onClick={()=>{}}> + </IconButton>
         </Card>
       </Container>
