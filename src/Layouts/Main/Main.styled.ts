@@ -22,8 +22,10 @@ export const Header = styled.h2`
 
 export const SummaryContainer = styled.div`
   display:flex;
-  justify-content:space-between;
-  width: 70%;
+  justify-content:center;
+  margin-top:2rem;
+
+  width:100%;
   color:
   ${({theme})=>
     theme.colors.primary.yellow
@@ -31,7 +33,9 @@ export const SummaryContainer = styled.div`
 `;
 
 export const SummaryCount = styled.span`
-
+  width: 60%;
 `;
 
-export const SummaryPrice = styled.span``;
+export const SummaryPrice = styled.span`
+  width: 20%;
+`;
