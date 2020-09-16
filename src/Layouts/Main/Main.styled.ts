@@ -24,6 +24,7 @@ export const SummaryContainer = styled.div`
   display:flex;
   justify-content:center;
   margin-top:2rem;
+  font-weight:600;
 
   width:100%;
   color:

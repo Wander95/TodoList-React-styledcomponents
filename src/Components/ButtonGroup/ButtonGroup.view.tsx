@@ -9,7 +9,7 @@ export interface IState {
   active:boolean
 }
 const ButtonGroup:FC<IButtonGroup> = (props)=> {
-  const [_activatePending,_setActivatePending] = useState<boolean>(false);
+  const [_activatePending,_setActivatePending] = useState<boolean>(true);
   const [_activateBuying,_setActivateBuying] = useState<boolean>(false);
   const [_activateDeleted,_setActivateDeleted] = useState<boolean>(false);
 
@@ -47,7 +47,7 @@ const ButtonGroup:FC<IButtonGroup> = (props)=> {
     <Container>
       <Button 
         {...buttonProps} 
-        onClick={handleActiveClick}>Pending</Button>
+        onClick={handleActiveClick}>All</Button>
 
       <Button 
         {...buttonProps2} 
