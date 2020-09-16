@@ -10,7 +10,7 @@ export const IconButton = styled(base.iconButton)`
   ${mixins.centralize}
   font-size:1.8rem;
   font-weight:500;
-  margin-top:.5rem;
+  margin-top:2rem;
 
   cursor:pointer;
 `;

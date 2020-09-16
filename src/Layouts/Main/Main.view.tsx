@@ -6,6 +6,7 @@ import { IconButton,CardItem,Card,ButtonGroup } from 'Components';
 import { 
   Container, 
   Header,
+  Input,
   SummaryContainer,
   SummaryCount,
   SummaryPrice
@@ -29,7 +30,8 @@ const MainView:FC = ()=> {
           </SummaryContainer>
 
           <ButtonGroup />
-
+          
+          <Input />
           <IconButton onClick={()=>{}}> + </IconButton>
         </Card>
       </Container>

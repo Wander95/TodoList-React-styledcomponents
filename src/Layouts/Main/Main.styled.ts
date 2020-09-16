@@ -23,7 +23,7 @@ export const Header = styled.h2`
 export const SummaryContainer = styled.div`
   display:flex;
   justify-content:center;
-  margin-top:2rem;
+  margin:2rem 0;
   font-weight:600;
 
   width:100%;
@@ -31,12 +31,33 @@ export const SummaryContainer = styled.div`
   ${({theme})=>
     theme.colors.primary.yellow
   };
+  
 `;
 
 export const SummaryCount = styled.span`
-  width: 60%;
+  width: 55%;
 `;
 
 export const SummaryPrice = styled.span`
-  width: 20%;
+  width: 15%;
+`;
+
+
+export const Input =styled.input`
+  margin:1rem 0;
+  padding:.5rem;
+  border: 0;
+  outline: 0;
+  font-weight:600;
+
+  color:
+  ${({theme})=>
+    theme.colors.primary.lightBlack
+  };
+
+  border-radius:
+  ${({theme})=>
+    theme.borderRadius.light
+  };
+  
 `;

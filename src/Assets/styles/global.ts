@@ -7,6 +7,10 @@ const GlobalStyles = createGlobalStyle`
   body{
     ${font.poppins}
   }
+
+  input{
+    outline:none;
+  }
 `;
 
 export default GlobalStyles

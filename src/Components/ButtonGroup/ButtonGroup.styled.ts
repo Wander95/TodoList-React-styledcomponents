@@ -4,7 +4,15 @@ interface IButton{
 }
 
 export const Container = styled.div`
+  background-color:
+  ${({theme})=>
+    theme.colors.primary.black
+  };
 
+  border-radius:
+  ${({theme})=>
+    theme.borderRadius.light
+  };
 `;
 
 export const Button = styled.span<IButton>`
@@ -27,5 +35,10 @@ export const Button = styled.span<IButton>`
     props.active
     ? props.theme.colors.primary.black
     : props.theme.colors.primary.lightYellow
+  };
+
+  border-radius:
+  ${({theme})=>
+    theme.borderRadius.light
   };
 `;
