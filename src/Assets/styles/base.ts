@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled,{ css } from 'styled-components';
 
 export default {
   button: styled.div`
@@ -20,14 +20,19 @@ export default {
 
     min-width: 2rem;
     min-height: 2rem;
+
+    background-color:
+    ${({theme})=>
+      theme.colors.primary.lightYellow
+    };
   `,
 
-  span:styled.span`
+  span:css`
     color: 
     ${({theme:{colors}})=> 
       colors.primary.lightYellow
     };
-    
+
     font-weight: 500;
     font-size: 1.5em;
     letter-spacing: -0.005em;
