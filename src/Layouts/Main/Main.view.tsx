@@ -12,6 +12,8 @@ import {
 } from './Main.styled';
 
 const MainView:FC = ()=> {
+  
+
   return (
     <ThemeProvider theme={Theme}>
       <Container>

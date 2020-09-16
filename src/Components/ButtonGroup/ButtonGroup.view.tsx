@@ -1,4 +1,4 @@
-import React,{ useState, FC,MouseEvent } from 'react'
+import React,{ useState, FC } from 'react'
 import { Button, Container } from './ButtonGroup.styled';
 
 export interface IButtonGroup {
@@ -13,19 +13,19 @@ const ButtonGroup:FC<IButtonGroup> = (props)=> {
   const [_activateBuying,_setActivateBuying] = useState<boolean>(false);
   const [_activateDeleted,_setActivateDeleted] = useState<boolean>(false);
 
-  const handleActiveClick = (evt:MouseEvent<HTMLSpanElement>)=>{
+  const handleActiveClick = ()=>{
     _setActivatePending(true);
     _setActivateBuying(false);
     _setActivateDeleted(false);
   }
 
-  const handleBuyingClick = (evt:MouseEvent<HTMLSpanElement>)=>{
+  const handleBuyingClick = ()=>{
     _setActivatePending(false);
     _setActivateBuying(true);
     _setActivateDeleted(false);
   }
 
-  const handleDeleteClick = (evt:MouseEvent<HTMLSpanElement>)=>{
+  const handleDeleteClick = ()=>{
     _setActivatePending(false);
     _setActivateBuying(false);
     _setActivateDeleted(true);
@@ -42,7 +42,7 @@ const ButtonGroup:FC<IButtonGroup> = (props)=> {
   const buttonProps3 = {
     active:_activateDeleted
   }
-  
+
   return (
     <Container>
       <Button 
