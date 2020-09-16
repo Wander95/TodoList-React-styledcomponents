@@ -1,7 +1,7 @@
 import React,{ FC } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Theme } from 'Assets/styles/theme'
-import { IconButton,CardItem,Card } from 'Components';
+import { IconButton,CardItem,Card,ButtonGroup } from 'Components';
 
 import { 
   Container, 
@@ -25,6 +25,8 @@ const MainView:FC = ()=> {
             <SummaryCount>03 Items</SummaryCount>
             <SummaryPrice>$150</SummaryPrice>
           </SummaryContainer>
+
+          <ButtonGroup />
 
           <IconButton onClick={()=>{}}> + </IconButton>
         </Card>
