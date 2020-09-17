@@ -12,7 +12,7 @@ export const Container = styled.div`
     theme.borderRadius.light
   };
 
-  height:80%;
+  height:40rem;
   width: 20rem;
 
   ${mixins.centralize}

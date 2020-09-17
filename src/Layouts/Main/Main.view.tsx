@@ -1,11 +1,11 @@
-import React,{ FC, useState } from 'react';
+import React,{ FC, useState,useRef } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Theme } from 'Assets/styles/theme'
 import * as Yup from 'yup'
 
 import { IconButton,CardItem,Card,ButtonGroup } from 'Components';
 
-import {Formik,Form} from 'formik';
+import { Formik,Form,FormikProps } from 'formik';
 
 import { 
   Container, 
@@ -30,6 +30,7 @@ const MainView:FC = ()=> {
   ] 
   const [cardItemList, setCardItemList] = useState< Array<ICardItemList> >(List)
 
+  const inputRef = useRef<HTMLInputElement>(null)
 
   const inputSchema = Yup.object().shape({
     description:Yup.string()
@@ -37,11 +38,10 @@ const MainView:FC = ()=> {
   })
 
 
-  const handlePress = (event: React.KeyboardEvent<HTMLInputElement>)=>{
-    if (event.key === 'Enter'){
-      console.log('object :>> ');
-      setCardItemList([]);
-    }
+  const handlePress = (event: React.KeyboardEvent<HTMLInputElement> | FormikProps<{ description: string, price: number }>)=>{
+  
+    
+    
   }
 
   interface ICardItemList {
@@ -78,7 +78,8 @@ const MainView:FC = ()=> {
               {(props)=>(
                 <Form>
                   <Input 
-                    onKeyPress={handlePress}
+                    ref={inputRef}
+                    onKeyPress={handlePress.bind('',props)}
                     name='description' 
                     onChange={props.handleChange} 
                     value={props.values.description}/>
