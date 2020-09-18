@@ -61,3 +61,29 @@ export const Input =styled.input`
   };
   
 `;
+
+
+export const CardListContainer = styled.div`
+  max-height:9rem;
+  overflow:scroll;
+
+  &::-webkit-scrollbar{
+    background: transparent;
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb{
+    
+    background-color: #000000;
+    width: 2px;
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+    background: transparent;
+  }
+
+  overflow-x: hidden; //horizontal
+`;

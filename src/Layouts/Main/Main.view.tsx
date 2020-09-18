@@ -13,7 +13,8 @@ import {
   Input,
   SummaryContainer,
   SummaryCount,
-  SummaryPrice
+  SummaryPrice,
+  CardListContainer
 } from './Main.styled';
 
 const MainView:FC = ()=> {
@@ -72,14 +73,16 @@ const MainView:FC = ()=> {
       <Container>
         <Card>
           <Header>Todo Market</Header>
-  
-          {cardItemList.map((cardItem,index)=>
-            <CardItem {...{
-              key:`card-item${index}`,
-              name:cardItem.description,
-              price:cardItem.price}
-            }/>
-          )}
+
+          <CardListContainer>
+            {cardItemList.map((cardItem,index)=>
+              <CardItem {...{
+                key:`card-item${index}`,
+                name:cardItem.description,
+                price:cardItem.price}
+              }/>
+            )}
+          </CardListContainer>
         
           <SummaryContainer>
             <SummaryCount>03 Items</SummaryCount>
