@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 
 import { IconButton,CardItem,Card,ButtonGroup } from 'Components';
 
-import { Formik,Form,FormikProps } from 'formik';
+import { Formik,Form,FormikProps,FormikHelpers } from 'formik';
 
 import { 
   Container, 
@@ -37,13 +37,30 @@ const MainView:FC = ()=> {
       .min(1,'Short')
   })
 
-
-  const handlePress = (event: React.KeyboardEvent<HTMLInputElement> | FormikProps<{ description: string, price: number }>)=>{
-  
-    
-    
+  interface IFormik {
+    description: string;
+    price: number;
   }
 
+  const handlePress = (
+  event: React.KeyboardEvent<HTMLInputElement>,
+  formikProps:FormikProps<IFormik>)=>{
+    setCardItemList([
+      ...cardItemList,
+
+    ])
+  }
+
+  const handleSubmit = (values:IFormik,formikBag:FormikHelpers<IFormik>)=>{
+    setCardItemList([
+      ...cardItemList,
+      {
+        description:values.description,
+        price:values.price
+      }
+    ])
+    formikBag.resetForm({values:{description:'',price:0}})
+  }
   interface ICardItemList {
     description?:string,
     price?:number
@@ -73,16 +90,18 @@ const MainView:FC = ()=> {
           
           <Formik 
             validationSchema={inputSchema}
-            onSubmit={()=>{}}
-            initialValues={{description:'',price:0}}>
-              {(props)=>(
+            onSubmit={handleSubmit}
+            initialValues={{description:'',price:0}}> 
+              {(formikProps)=>(
                 <Form>
                   <Input 
                     ref={inputRef}
-                    onKeyPress={handlePress.bind('',props)}
+                    onKeyPress={(evt)=>
+                      handlePress(evt,formikProps)
+                    }
                     name='description' 
-                    onChange={props.handleChange} 
-                    value={props.values.description}/>
+                    onChange={formikProps.handleChange} 
+                    value={formikProps.values.description}/>
                   {/* <Input type='number' name='price' onChange={props.handleChange} value={props.values.price}/> */}
                 </Form>
               )}
