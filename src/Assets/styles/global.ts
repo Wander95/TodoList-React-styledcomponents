@@ -11,6 +11,10 @@ const GlobalStyles = createGlobalStyle`
   input{
     outline:none;
   }
+
+  button{
+    outline:none;
+  }
 `;
 
 export default GlobalStyles

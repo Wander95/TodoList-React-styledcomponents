@@ -1,12 +1,6 @@
 import styled from 'styled-components';
 import mixins from 'Assets/styles/mixins';
-import base from 'Assets/styles/base';
 
-interface IIpunt {
-  width?:string
-  padding?:string
-  marginRight?:string
-}
 
 export const Container = styled.div`
   ${mixins.centralize}
@@ -49,40 +43,6 @@ export const SummaryPrice = styled.span`
   width: 15%;
 `;
 
-
-export const Input = styled.input<IIpunt>`
-  display:inline-block;
-
-  width:
-  ${({width})=>
-    width ? width : '5rem'
-  };
-
-  
-  
-  margin:1rem 0;
-  margin-right: 
-  ${({marginRight})=>
-    marginRight ? marginRight : '0'
-  };
-
-
-  padding:.5rem;
-  border: 0;
-  outline: 0;
-  font-weight:600;
-
-  color:
-  ${({theme})=>
-    theme.colors.primary.lightBlack
-  };
-
-  border-radius:
-  ${({theme})=>
-    theme.borderRadius.light
-  };
-  
-`;
 
 
 export const CardListContainer = styled.div`

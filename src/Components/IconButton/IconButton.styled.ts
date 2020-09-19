@@ -8,10 +8,12 @@ export const Container = styled.div`
 `;
 
 export const IconButton = styled(base.iconButton)`
+  margin:auto;
   ${mixins.centralize}
   font-size:1.8rem;
   font-weight:500;
   margin-top:2rem;
 
+  padding:1.5rem;
   cursor:pointer;
 `;
