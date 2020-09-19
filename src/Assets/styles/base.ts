@@ -12,7 +12,7 @@ export default {
     font-size: 16px;
   `,
 
-  iconButton:styled.div`
+  iconButton:styled.button`
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;

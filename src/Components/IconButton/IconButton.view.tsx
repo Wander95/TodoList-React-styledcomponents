@@ -1,17 +1,24 @@
-import React,{ FC } from 'react'
-import { Container,IconButton as CiconButton } from './IconButton.styled'
+import React,{ FC,MouseEvent } from 'react'
+import { Container,IconButton as CIconButton } from './IconButton.styled'
+
 
 export interface IIconButton {
-  onClick:((event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined
+  type?:string
+  onClick?:((
+    event: MouseEvent<HTMLDivElement, globalThis.MouseEvent> 
+  ) => void ) 
+  
+
 }
 
 const IconButton:FC<IIconButton> = (props)=> {
   const { children,onClick } = props;
+
   return (
-    <Container onClick={onClick}>
-      <CiconButton>
+    <Container onClick={onClick} >
+      <CIconButton type='submit'>
         {children}
-      </CiconButton>
+      </CIconButton>
     </Container>
   )
 }

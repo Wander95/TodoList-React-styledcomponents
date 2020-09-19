@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 import mixins from 'Assets/styles/mixins';
+import base from 'Assets/styles/base';
+
+interface IIpunt {
+  width?:string
+  padding?:string
+  marginRight?:string
+}
 
 export const Container = styled.div`
   ${mixins.centralize}
@@ -43,8 +50,23 @@ export const SummaryPrice = styled.span`
 `;
 
 
-export const Input =styled.input`
+export const Input = styled.input<IIpunt>`
+  display:inline-block;
+
+  width:
+  ${({width})=>
+    width ? width : '5rem'
+  };
+
+  
+  
   margin:1rem 0;
+  margin-right: 
+  ${({marginRight})=>
+    marginRight ? marginRight : '0'
+  };
+
+
   padding:.5rem;
   border: 0;
   outline: 0;
@@ -64,6 +86,7 @@ export const Input =styled.input`
 
 
 export const CardListContainer = styled.div`
+  padding:1rem;
   max-height:9rem;
   overflow:scroll;
 
@@ -80,10 +103,15 @@ export const CardListContainer = styled.div`
   }
 
   &::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     background-color: #F5F5F5;
     background: transparent;
   }
 
   overflow-x: hidden; //horizontal
 `;
+
+export const FormContainer = styled.div`
+
+`;
+

@@ -3,9 +3,9 @@ import { ThemeProvider } from 'styled-components';
 import { Theme } from 'Assets/styles/theme'
 import * as Yup from 'yup'
 
-import { IconButton,CardItem,Card,ButtonGroup } from 'Components';
+import { CardItem,Card,ButtonGroup,IconButton } from 'Components';
 
-import { Formik,Form,FormikProps,FormikHelpers } from 'formik';
+import { Formik,Form,FormikHelpers } from 'formik';
 
 import { 
   Container, 
@@ -14,8 +14,14 @@ import {
   SummaryContainer,
   SummaryCount,
   SummaryPrice,
-  CardListContainer
+  CardListContainer,
+  FormContainer
 } from './Main.styled';
+
+export interface IFormik {
+  description: string;
+  price: number;
+}
 
 const MainView:FC = ()=> {
   
@@ -36,21 +42,11 @@ const MainView:FC = ()=> {
   const inputSchema = Yup.object().shape({
     description:Yup.string()
       .min(1,'Short')
+      .required('Is required'),
+    price:Yup.number()
+      .min(1,'Min value 1')
+      .required('Is required')
   })
-
-  interface IFormik {
-    description: string;
-    price: number;
-  }
-
-  const handlePress = (
-  event: React.KeyboardEvent<HTMLInputElement>,
-  formikProps:FormikProps<IFormik>)=>{
-    setCardItemList([
-      ...cardItemList,
-
-    ])
-  }
 
   const handleSubmit = (values:IFormik,formikBag:FormikHelpers<IFormik>)=>{
     setCardItemList([
@@ -60,8 +56,15 @@ const MainView:FC = ()=> {
         price:values.price
       }
     ])
-    formikBag.resetForm({values:{description:'',price:0}})
+
+    formikBag.resetForm({
+      values:{
+        description:'',
+        price:0
+      }
+    })
   }
+
   interface ICardItemList {
     description?:string,
     price?:number
@@ -90,27 +93,33 @@ const MainView:FC = ()=> {
           </SummaryContainer>
 
           <ButtonGroup />
-          
-          <Formik 
-            validationSchema={inputSchema}
-            onSubmit={handleSubmit}
-            initialValues={{description:'',price:0}}> 
-              {(formikProps)=>(
-                <Form>
-                  <Input 
-                    ref={inputRef}
-                    onKeyPress={(evt)=>
-                      handlePress(evt,formikProps)
-                    }
-                    name='description' 
-                    onChange={formikProps.handleChange} 
-                    value={formikProps.values.description}/>
-                  {/* <Input type='number' name='price' onChange={props.handleChange} value={props.values.price}/> */}
-                </Form>
-              )}
-          </Formik>
-        
-          <IconButton onClick={()=>{}}> + </IconButton>
+          <FormContainer>
+            <Formik 
+              validationSchema={inputSchema}
+              onSubmit={handleSubmit}
+              initialValues={{description:'',price:0}}> 
+                {(formikProps)=>(
+                  <Form>
+                    <Input 
+                      width='8rem'
+                      marginRight='.5rem'
+                      ref={inputRef}
+                      name='description' 
+                      onChange={formikProps.handleChange} 
+                      value={formikProps.values.description}/>
+
+                    <Input 
+                      type='text' 
+                      name='price' 
+                      onChange={formikProps.handleChange} 
+                      value={formikProps.values.price}/>
+                      {console.log(formikProps.errors.description)}
+                      <IconButton 
+                        type='submit'> + </IconButton>
+                  </Form>
+                )}
+            </Formik>
+          </FormContainer>
         </Card>
       </Container>
     </ThemeProvider>
