@@ -1,7 +1,7 @@
 import React,{ FC } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Theme } from 'Assets/styles/theme'
-
+import { Item,IMainProps } from 'types'
 
 import { CardItem,Card,ButtonGroup,Form } from 'Components';
 
@@ -15,10 +15,11 @@ import {
 } from './Main.styled';
 
 
-const MainView:FC = ()=> {
-  
-  const cardItemList:Array<{description:string,price:number}> = []
-  
+
+const MainView:FC<IMainProps> = (props)=> {
+  const cardItemList:Array<Item> = []
+
+  console.log('props :>> ', props.items);
   return (
     <ThemeProvider theme={Theme}>
       <Container>

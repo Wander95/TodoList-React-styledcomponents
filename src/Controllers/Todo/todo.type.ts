@@ -1,18 +1,6 @@
-import { IFormik } from 'Components/Form/Form.view';
-
-export interface Item extends IFormik {
-
-}
 
 export const ITEM_ADDED = 'ITEM_ADDED';
+export type ITEM_ADDED = typeof ITEM_ADDED
 
-export interface AddItem {
-  type: typeof ITEM_ADDED,
-  payload:Item
-}
-
-export const types = {
-  ITEM_ADDED
-}
-
-export type ItemActionType = AddItem
+export const ITEM_DELETED = 'ITEM_DELETED'
+export type ITEM_DELETED = typeof ITEM_DELETED

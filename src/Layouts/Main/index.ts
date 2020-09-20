@@ -1,3 +1,3 @@
-import Main from './Main.view'
+import Main from './Main.container'
 
 export default Main

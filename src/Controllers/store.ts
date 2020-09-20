@@ -1,8 +1,9 @@
 import { createStore,combineReducers } from 'redux';
-import toDoList from './Todo'
+import items from './Todo'
+
 
 const reducers = combineReducers({
-  toDoList
+  items
 })
 
 const store = createStore(reducers)
