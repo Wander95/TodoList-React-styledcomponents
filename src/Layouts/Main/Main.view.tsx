@@ -1,7 +1,7 @@
 import React,{ FC } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Theme } from 'Assets/styles/theme'
-import { Item,IMainProps } from 'types'
+import { IMainProps } from 'types'
 
 import { CardItem,Card,ButtonGroup,Form } from 'Components';
 
@@ -17,9 +17,8 @@ import {
 
 
 const MainView:FC<IMainProps> = (props)=> {
-  const cardItemList:Array<Item> = []
+  const {  items } = props
 
-  console.log('props :>> ', props.items);
   return (
     <ThemeProvider theme={Theme}>
       <Container>
@@ -27,7 +26,7 @@ const MainView:FC<IMainProps> = (props)=> {
           <Header>Todo Market</Header>
 
           <CardListContainer>
-            {cardItemList.map((cardItem,index)=>
+            {items.map((cardItem,index)=>
               <CardItem {...{
                 key:`card-item${index}`,
                 name:cardItem.description,

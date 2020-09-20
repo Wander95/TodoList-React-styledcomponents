@@ -14,9 +14,9 @@ export interface IStore {
 
 
 export interface IMainProps{
-  items:Item
+  items:Array<Item>
 }
 
 export interface IAppState {
-  items:Item
+  items:Array<Item>
 }
