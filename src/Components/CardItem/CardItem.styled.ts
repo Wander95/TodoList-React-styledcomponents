@@ -22,5 +22,5 @@ export const Name = styled(motion.span)`
 
 export const Price = styled(motion.span)`
   ${base.span}
-  width: 2rem;
+  width: 4rem;
 `;

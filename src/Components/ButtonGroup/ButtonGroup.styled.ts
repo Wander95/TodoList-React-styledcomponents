@@ -20,7 +20,7 @@ export const Button = styled.span<IButton>`
   padding: .5rem .8rem;
   cursor:pointer;
   font-weight:550;
-  width:3.5rem;
+  width:3.9rem;
   text-align:center;
   //**If active is given */
   background-color:
