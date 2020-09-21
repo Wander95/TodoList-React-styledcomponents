@@ -21,14 +21,12 @@ const MainView:FC<IMainProps> = (props)=> {
 
   const itemsQuantity = items.length;
 
-  const itemsTotal = items.reduce((total,currentItem)=>{
+  const itemsTotalPrice = items.reduce((previousItem,currentItem)=>{
     return {
       description:currentItem.description,
-      price:Number(total.price) + Number(currentItem.price)
+      price:Number(previousItem.price) + Number(currentItem.price)
     }
   })
-
-  console.log('itemsTotal :>> ', itemsTotal);
 
   return (
     <ThemeProvider theme={Theme}>
@@ -48,7 +46,7 @@ const MainView:FC<IMainProps> = (props)=> {
         
           <SummaryContainer>
             <SummaryCount>{itemsQuantity} Items</SummaryCount>
-            <SummaryPrice>${itemsTotal.price}</SummaryPrice>
+            <SummaryPrice>${itemsTotalPrice.price}</SummaryPrice>
           </SummaryContainer>
 
           <ButtonGroup />

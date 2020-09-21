@@ -1,3 +1,3 @@
-import ButtonGroup from './ButtonGroup.view';
+import ButtonGroup from './ButtonGroup.container';
 
 export default ButtonGroup
