@@ -1,18 +1,13 @@
 import React,{ FC,useState } from 'react'
 import ButtonGroup from './ButtonGroup.view';
+import { 
+  IButtonGroupProps,
+  IButtonGroupContainerProps,
+  IButtonProps 
+} from 'types'
 
 
-export interface IButtonProps {
-  active:boolean,
-  onClick:()=>void
-}
-
-export interface ButtonProps {
-  activeButtonProps:IButtonProps,
-  buyingButtonProps:IButtonProps,
-  deletedButtonProps:IButtonProps
-}
-const ButtonGroupContainer:FC = ()=> {
+const ButtonGroupContainer:FC<IButtonGroupContainerProps> = (props)=> {
 
   const [_activatePending,_setActivatePending] = useState<boolean>(true);
   const [_activateBuying,_setActivateBuying] = useState<boolean>(false);
@@ -57,8 +52,9 @@ const ButtonGroupContainer:FC = ()=> {
     deletedButtonProps
   }
 
-  const buttonGroupProps = {
-    buttonProps
+  const buttonGroupProps:IButtonGroupProps = {
+    buttonProps,
+    items:props.items
   }
   return (
     <ButtonGroup {...buttonGroupProps}/>

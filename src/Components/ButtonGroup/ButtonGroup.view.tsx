@@ -1,12 +1,12 @@
 import React,{ FC } from 'react'
 import { Button, Container } from './ButtonGroup.styled';
-
 import { IButtonGroupProps } from 'types'
 
 
 const ButtonGroup:FC<IButtonGroupProps> = (props)=> {
-  const { buttonProps } = props;
+  const { buttonProps,items } = props;
 
+  console.log('items :>> ', items);
   return (
     <Container>
       <Button 

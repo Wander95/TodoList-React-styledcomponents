@@ -20,6 +20,10 @@ export interface IButtonGroupProps {
   items?:Array<Item> ,
   buttonProps?:ButtonProps
 }
+export interface IButtonGroupContainerProps {
+  items?:Array<Item> 
+}
+
 
 
 

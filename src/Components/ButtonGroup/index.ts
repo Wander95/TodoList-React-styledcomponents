@@ -1,3 +1,3 @@
-import ButtonGroup from './ButtonGroup.container';
+import ButtonGroup from './ButtonGroup.redux';
 
 export default ButtonGroup
