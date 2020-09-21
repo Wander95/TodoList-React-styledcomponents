@@ -19,6 +19,17 @@ import {
 const MainView:FC<IMainProps> = (props)=> {
   const {  items } = props
 
+  const itemsQuantity = items.length;
+
+  const itemsTotal = items.reduce((total,currentItem)=>{
+    return {
+      description:currentItem.description,
+      price:Number(total.price) + Number(currentItem.price)
+    }
+  })
+
+  console.log('itemsTotal :>> ', itemsTotal);
+
   return (
     <ThemeProvider theme={Theme}>
       <Container>
@@ -30,14 +41,14 @@ const MainView:FC<IMainProps> = (props)=> {
               <CardItem {...{
                 key:`card-item${index}`,
                 name:cardItem.description,
-                price:cardItem.price}
-              }/>
+                price:cardItem.price
+              }}/>
             )}
           </CardListContainer>
         
           <SummaryContainer>
-            <SummaryCount>03 Items</SummaryCount>
-            <SummaryPrice>$150</SummaryPrice>
+            <SummaryCount>{itemsQuantity} Items</SummaryCount>
+            <SummaryPrice>${itemsTotal.price}</SummaryPrice>
           </SummaryContainer>
 
           <ButtonGroup />
