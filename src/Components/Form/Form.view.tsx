@@ -1,5 +1,5 @@
 import React,{ FC,useRef } from 'react'
-import { Item } from 'types'
+import { Item, status } from 'types'
 import { useDispatch } from 'react-redux'
 import { 
   FormContainer,
@@ -23,7 +23,8 @@ const Form: FC = ()=> {
   const handleSubmit = (values:Item,formikBag:FormikHelpers<Item>)=>{
     dispatch(addItem({
       description:values.description,
-      price:values.price
+      price:values.price,
+      status:status.ACTIVE
     }))
 
     formikBag.resetForm({
