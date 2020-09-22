@@ -1,5 +1,10 @@
 import { Item, status } from 'types';
-import { ITEM_ADDED, ITEM_DELETED, ITEM_STATUS_CHANGED_ACTIVE, ITEM_STATUS_CHANGED_DELETED } from './todo.type'
+import { 
+  ITEM_ADDED, 
+  ITEM_DELETED, 
+  ITEM_STATUS_CHANGED_ACTIVE, 
+  ITEM_STATUS_CHANGED_DELETED 
+} from './todo.type'
 import { ItemActionType } from './todo.actions'
 
 const initialState : Array<Item> = [

@@ -65,7 +65,6 @@ export const changeStatusToActive = (itemStatus:ItemStatus):ItemActionType=>{
 }
 
 export const changeStatusToDeleted = (itemStatus:ItemStatus):ItemActionType=>{
-  console.log('itemStatus', itemStatus)
   return {
     type:ITEM_STATUS_CHANGED_DELETED,
     payload:{
@@ -74,6 +73,7 @@ export const changeStatusToDeleted = (itemStatus:ItemStatus):ItemActionType=>{
     }
   }
 }
+
 
 
 export type ItemActionType = AddItem | DeleteItem | FilterItem | ChangeStatusActive | ChangeStatusDeleted;

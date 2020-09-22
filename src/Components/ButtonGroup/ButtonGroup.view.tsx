@@ -6,7 +6,6 @@ import { IButtonGroupProps } from 'types'
 const ButtonGroup:FC<IButtonGroupProps> = (props)=> {
   const { buttonProps,items } = props;
 
-  console.log('items :>> ', items);
   return (
     <Container>
       <Button 

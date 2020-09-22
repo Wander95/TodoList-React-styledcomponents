@@ -4,7 +4,7 @@ import { IAppState } from 'types'
 import Main from './Main.view'
 
 
-const mapStateToProps = (state:IAppState) => ({
+const mapStateToProps = (state:IAppState={ items:[]}) => ({
   items:state.items
 })
 
