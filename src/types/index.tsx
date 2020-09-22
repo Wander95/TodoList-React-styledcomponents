@@ -1,6 +1,18 @@
+export enum status {
+  DELETED,
+  ACTIVE
+}
+
 export interface Item {
   description:string,
-  price:number
+  price:number,
+  status?: status.DELETED | status.ACTIVE,
+  index?:number
+}
+
+export interface ItemStatus {
+  status:status,
+  index:number
 }
 
 //**Application State */
