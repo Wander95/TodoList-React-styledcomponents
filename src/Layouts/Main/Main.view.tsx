@@ -38,8 +38,9 @@ const MainView:FC<IMainProps> = (props)=> {
             {items.map((cardItem,index)=>
               <CardItem {...{
                 key:`card-item${index}`,
-                name:cardItem.description,
-                price:cardItem.price
+                description:cardItem.description,
+                price:cardItem.price,
+                index:index
               }}/>
             )}
           </CardListContainer>
