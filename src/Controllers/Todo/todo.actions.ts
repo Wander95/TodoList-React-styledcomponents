@@ -1,12 +1,9 @@
 import { 
-  ITEM_ADDED, 
-  ITEM_DELETED,
-  ITEM_FILTERED, 
-  ITEM_STATUS_CHANGED_ACTIVE, 
-  ITEM_STATUS_CHANGED_DELETED 
+  ACTIVE_SWITCHED,
+  ITEM_ADDED
 } from './todo.type';
 
-import { Item,ItemStatus } from 'types'
+import { Item} from 'types'
 
 
 //*define action interfaces
@@ -16,27 +13,10 @@ export interface AddItem {
 }
 
 
-export interface DeleteItem {
-  type: ITEM_DELETED,
-  payload:Item
+export interface SwitchActiveItem {
+  type:ACTIVE_SWITCHED,
+  payload:string
 }
-
-export interface FilterItem {
-  type: ITEM_FILTERED,
-  payload:Array<Item>
-}
-
-export interface ChangeStatusActive {
-  type:ITEM_STATUS_CHANGED_ACTIVE,
-  payload:ItemStatus
-}
-
-export interface ChangeStatusDeleted {
-  type:ITEM_STATUS_CHANGED_DELETED,
-  payload:ItemStatus
-}
-
-
 
 //*define actions
 export const addItem = (newItem:Item):ItemActionType=>(
@@ -46,34 +26,13 @@ export const addItem = (newItem:Item):ItemActionType=>(
   }
 )
 
-export const filterItem = (items:Array<Item>)=>(
-  {
-    type: ITEM_FILTERED,
-    payload:items
-  }
-)
 
-
-export const changeStatusToActive = (itemStatus:ItemStatus):ItemActionType=>{
+export const switchActive = (itemId:string):ItemActionType=>{
   return {
-    type:ITEM_STATUS_CHANGED_ACTIVE,
-    payload:{
-      status:itemStatus.status,
-      index:itemStatus.index
-    }
-  }
-}
-
-export const changeStatusToDeleted = (itemStatus:ItemStatus):ItemActionType=>{
-  return {
-    type:ITEM_STATUS_CHANGED_DELETED,
-    payload:{
-      status:itemStatus.status,
-      index:itemStatus.index
-    }
+    type:ACTIVE_SWITCHED,
+    payload:itemId
   }
 }
 
 
-
-export type ItemActionType = AddItem | DeleteItem | FilterItem | ChangeStatusActive | ChangeStatusDeleted;
+export type ItemActionType = AddItem   | SwitchActiveItem;
