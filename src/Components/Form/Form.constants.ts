@@ -1,8 +1,10 @@
 import * as Yup from 'yup'
 
 export const initialValues = {
+  id:'',
   description:'',
-  price:0
+  price:0,
+  active:true
 }
 
 export const inputSchema = Yup.object().shape({

@@ -12,7 +12,7 @@ import { Formik,Form as FormikForm,FormikHelpers } from 'formik';
 import { initialValues, inputSchema } from './Form.constants';
 import { addItem } from 'Controllers/Todo/todo.actions';
 
-
+import { v4 as uuidv4 } from 'uuid';
 
 const Form: FC = ()=> {
   const dispatch = useDispatch()
@@ -22,9 +22,11 @@ const Form: FC = ()=> {
 
   const handleSubmit = (values:Item,formikBag:FormikHelpers<Item>)=>{
     dispatch(addItem({
+      id:uuidv4(),
       description:values.description,
       price:values.price,
-      status:status.ACTIVE
+      status:status.ACTIVE,
+      active:true
     }))
 
     formikBag.resetForm({
