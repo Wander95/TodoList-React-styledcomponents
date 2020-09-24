@@ -42,11 +42,10 @@ const MainView:FC<IMainProps> = (props)=> {
           <Header>Todo Market</Header>
 
           <CardListContainer>
-            {items.length > 0 && items.map((cardItem,index)=>
+            {items.length > 0 && items.map((cardItem)=>
               <CardItem {...{
-                key:`card-item${index}`,
-                ...cardItem,
-                index
+                key:cardItem.id,
+                ...cardItem
               }}/>
             )}
           </CardListContainer>

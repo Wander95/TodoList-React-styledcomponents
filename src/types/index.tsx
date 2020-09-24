@@ -12,7 +12,7 @@ export interface Item {
 }
 
 export interface CardItemProps extends Item {
-  index:number
+
 }
 
 export interface ItemStatus {
