@@ -3,40 +3,40 @@ import ButtonGroup from './ButtonGroup.view';
 import { 
   IButtonGroupProps,
   IButtonGroupContainerProps,
-  IButtonProps 
+  IButtonProps,
+  ButtonGroupSelection
 } from 'types'
 
-
 const ButtonGroupContainer:FC<IButtonGroupContainerProps> = (props)=> {
-
+  const { changeSelection } = props;
+  
   const [_activateAll,_setActivatePending] = useState<boolean>(true);
   const [_activateBuying,_setActivateBuying] = useState<boolean>(false);
   const [_activateDeleted,_setActivateDeleted] = useState<boolean>(false);
 
-  const currentActive = {
-    all:_activateAll,
-    buying:_activateBuying,
-    deleted:_activateDeleted
-  };
 
-  console.log('currentActive :>> ', currentActive);
-
-  const handleActiveClick = ()=>{
+  const handleActiveClick = (event: React.MouseEvent<HTMLSpanElement, MouseEvent>)=>{
+    event.stopPropagation()
     _setActivatePending(true);
     _setActivateBuying(false);
     _setActivateDeleted(false);
+    changeSelection(ButtonGroupSelection.all)
   }
 
-  const handleBuyingClick = ()=>{
+  const handleBuyingClick = (event: React.MouseEvent<HTMLSpanElement, MouseEvent>)=>{
+    event.stopPropagation()
     _setActivatePending(false);
     _setActivateBuying(true);
     _setActivateDeleted(false);
+    changeSelection(ButtonGroupSelection.active)
   }
 
-  const handleDeleteClick = ()=>{
+  const handleDeleteClick = (event: React.MouseEvent<HTMLSpanElement, MouseEvent>)=>{
+    event.stopPropagation()
     _setActivatePending(false);
     _setActivateBuying(false);
     _setActivateDeleted(true);
+    changeSelection(ButtonGroupSelection.deleted)
   }
 
   const activeButtonProps:IButtonProps = {
@@ -61,9 +61,10 @@ const ButtonGroupContainer:FC<IButtonGroupContainerProps> = (props)=> {
   }
 
   const buttonGroupProps:IButtonGroupProps = {
-    buttonProps,
-    items:props.items
+    buttonProps
   }
+
+
   return (
     <ButtonGroup {...buttonGroupProps}/>
   )
