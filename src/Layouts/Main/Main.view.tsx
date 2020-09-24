@@ -17,16 +17,23 @@ import {
 
 
 const MainView:FC<IMainProps> = (props)=> {
-  const {  items } = props
+  const {  items=[] } = props
 
   const itemsQuantity = items.length;
 
-  const itemsTotalPrice = items.reduce((previousItem,currentItem)=>{
+  const itemsTotalPrice = items.length > 0 
+  ? items.reduce((previousItem,currentItem,currentIndex)=>{
     return {
+      ...currentItem,
       description:currentItem.description,
-      price:Number(previousItem.price) + Number(currentItem.price)
+      price:Number(previousItem.price) + Number(currentItem.price),
     }
   })
+  : {
+    description:'',
+    price:0,
+    active:true
+  }
 
   return (
     <ThemeProvider theme={Theme}>
@@ -35,12 +42,11 @@ const MainView:FC<IMainProps> = (props)=> {
           <Header>Todo Market</Header>
 
           <CardListContainer>
-            {items.map((cardItem,index)=>
+            {items.length > 0 && items.map((cardItem,index)=>
               <CardItem {...{
                 key:`card-item${index}`,
-                description:cardItem.description,
-                price:cardItem.price,
-                index:index
+                ...cardItem,
+                index
               }}/>
             )}
           </CardListContainer>
