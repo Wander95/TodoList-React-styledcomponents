@@ -4,10 +4,15 @@ export enum status {
 }
 
 export interface Item {
+  id:string
   description:string,
   price:number,
+  active:boolean,
   status?: status.DELETED | status.ACTIVE,
-  index?:number
+}
+
+export interface CardItemProps extends Item {
+  index:number
 }
 
 export interface ItemStatus {
@@ -17,7 +22,8 @@ export interface ItemStatus {
 
 //**Application State */
 export interface IAppState {
-  items:Array<Item>
+  items:Array<Item>,
+  selectState:IChangeGroup
 }
 
 
@@ -27,25 +33,44 @@ export interface IMainProps{
   items:Array<Item>
 }
 
+
+export interface IButtonProps {
+  active:boolean,
+  onClick:(event: React.MouseEvent<HTMLSpanElement, MouseEvent>)=>void
+}
+
+
+
+export interface ButtonProps {
+  activeButtonProps:IButtonProps,
+  buyingButtonProps:IButtonProps,
+  deletedButtonProps:IButtonProps
+}
+
+
 export interface IButtonGroupProps {
   active?: boolean,
   items?:Array<Item> ,
   buttonProps?:ButtonProps
 }
 export interface IButtonGroupContainerProps {
-  items?:Array<Item> 
+  items?:Array<Item>,
+  changeSelection:any
 }
 
 
 
 
-export interface IButtonProps {
-  active:boolean,
-  onClick:()=>void
+
+
+export interface IChangeGroup {
+  filterBy:ButtonGroupSelection
 }
 
-export interface ButtonProps {
-  activeButtonProps:IButtonProps,
-  buyingButtonProps:IButtonProps,
-  deletedButtonProps:IButtonProps
+
+
+export enum ButtonGroupSelection {
+  all,
+  active,
+  deleted
 }
