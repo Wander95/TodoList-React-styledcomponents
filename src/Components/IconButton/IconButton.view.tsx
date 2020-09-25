@@ -16,7 +16,9 @@ const IconButton:FC<IIconButton> = (props)=> {
 
   return (
     <Container onClick={onClick} >
-      <CIconButton type='submit'>
+      <CIconButton 
+        whileTap={{scale:.9}}
+        type='submit'>
         {children}
       </CIconButton>
     </Container>

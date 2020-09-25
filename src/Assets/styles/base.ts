@@ -27,6 +27,21 @@ export default {
     };
   `,
 
+  m_iconButton:css`
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    padding: 0.35em;
+
+    min-width: 2rem;
+    min-height: 2rem;
+
+    background-color:
+    ${({theme})=>
+      theme.colors.primary.lightYellow
+    };
+  `,
+
   span:css`
     color: 
     ${({theme:{colors}})=> 
