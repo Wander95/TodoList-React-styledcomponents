@@ -1,6 +1,6 @@
 
 import { connect } from 'react-redux'
-import { IAppState,ButtonGroupSelection } from 'types'
+import { IAppState,ButtonGroupSelection,Item } from 'types'
 import Main from './Main.view'
 
 const selectFilteredItems = (state:IAppState)=>{
@@ -25,9 +25,23 @@ const selectFilteredItems = (state:IAppState)=>{
   return state.items
 }
 
+
+const selectFilteredRegex = (items:Item[],state:IAppState)=>{
+  const inputState = state.selectState.regexFilter;
+  const regex = new RegExp(inputState,'g');
+
+  return items.filter((item)=>{
+    return item.description.toLowerCase().match(regex)
+  })
+}
+
 const mapStateToProps = (state:IAppState) => {
+  selectFilteredRegex(selectFilteredItems(state),state)
   return {
-    items:selectFilteredItems(state)
+    items:selectFilteredRegex(
+      selectFilteredItems(state),
+      state
+    )
   }
 }
 

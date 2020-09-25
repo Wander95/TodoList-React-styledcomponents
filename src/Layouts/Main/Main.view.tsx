@@ -1,4 +1,4 @@
-import React,{ FC } from 'react';
+import React,{ FC, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Theme } from 'Assets/styles/theme'
 import { IMainProps } from 'types'
@@ -16,9 +16,12 @@ import {
 } from './Main.styled';
 
 import { AnimatePresence } from 'framer-motion'
+import { useDispatch } from 'react-redux'
+import { regexFiltered } from 'Controllers/App/app.actions'
 
 const MainView:FC<IMainProps> = (props)=> {
   const {  items=[] } = props
+  const dispatch = useDispatch();
 
   const itemsQuantity = items.length;
 
@@ -36,24 +39,35 @@ const MainView:FC<IMainProps> = (props)=> {
     active:true
   }
 
+  const [inputState, setInputState] = useState<string>('')
+
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>)=>{
+    const filterOption = event.target.value;
+    setInputState(filterOption)
+    dispatch(regexFiltered(filterOption.toLocaleLowerCase()))
+  }
+
+
+
   return (
     <ThemeProvider theme={Theme}>
       <Container>
         <Card>
           
           <Header>Todo Market</Header>
-          <Input type="text"/>
+          <Input type="text" onChange={handleInputChange} value={inputState}/>
           <CardListContainer>
             <AnimatePresence>
-            
-            {items.length > 0 && items.map((cardItem)=>(
-              <CardItem {...{
-                key:cardItem.id,
-                ...cardItem
-              }}
-              />
-            ))}
-          </AnimatePresence>
+              {
+                items.length > 0 && items.map((cardItem)=>(
+                  <CardItem {...{
+                    key:cardItem.id,
+                    ...cardItem
+                  }}/>
+                ))
+              }
+            </AnimatePresence>
           </CardListContainer>
         
           <SummaryContainer>

@@ -64,7 +64,8 @@ export interface IButtonGroupContainerProps {
 
 
 export interface IChangeGroup {
-  filterBy:ButtonGroupSelection
+  filterBy:ButtonGroupSelection,
+  regexFilter:string
 }
 
 

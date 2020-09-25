@@ -1,4 +1,5 @@
 import { 
+  REGEX_FILTERED,
   SELECTION_CHANGED
 } from './app.type';
 
@@ -12,6 +13,13 @@ export interface ChangeSelection {
 }
 
 
+
+export interface FilterRegex {
+  type: REGEX_FILTERED,
+  payload:string
+}
+
+
 //*define actions
 export const changeSelection = (selectionGroup:ButtonGroupSelection):ItemActionType=>(
   {
@@ -20,4 +28,12 @@ export const changeSelection = (selectionGroup:ButtonGroupSelection):ItemActionT
   }
 )
 
-export type ItemActionType = ChangeSelection;
+
+export const regexFiltered = (regexValue:string):ItemActionType=>(
+  {
+    type:REGEX_FILTERED,
+    payload:regexValue
+  }
+)
+
+export type ItemActionType = ChangeSelection | FilterRegex;

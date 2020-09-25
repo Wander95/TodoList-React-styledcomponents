@@ -1,9 +1,10 @@
 import { ButtonGroupSelection, IChangeGroup } from 'types';
-import { SELECTION_CHANGED } from './app.type'
+import { SELECTION_CHANGED,REGEX_FILTERED } from './app.type'
 import { ItemActionType } from './app.actions'
 
 const initialState : IChangeGroup = {
-  filterBy:ButtonGroupSelection.all
+  filterBy:ButtonGroupSelection.all,
+  regexFilter:''
 }
 
 
@@ -14,6 +15,11 @@ const toDoList = (state=initialState,action:ItemActionType):IChangeGroup=>{
       return {
         ...state,
         filterBy:action.payload
+      }
+    case REGEX_FILTERED:
+      return {
+        ...state,
+        regexFilter:action.payload
       }
     default:
       return state;
