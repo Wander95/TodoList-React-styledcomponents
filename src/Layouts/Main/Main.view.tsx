@@ -14,6 +14,7 @@ import {
   CardListContainer
 } from './Main.styled';
 
+import { AnimatePresence } from 'framer-motion'
 
 
 const MainView:FC<IMainProps> = (props)=> {
@@ -40,13 +41,15 @@ const MainView:FC<IMainProps> = (props)=> {
       <Container>
         <Card>
           <Header>Todo Market</Header>
-
+          <input type="text"/>
           <CardListContainer>
             {items.length > 0 && items.map((cardItem)=>
-              <CardItem {...{
-                key:cardItem.id,
-                ...cardItem
-              }}/>
+              <AnimatePresence>
+                  {<CardItem {...{
+                    key:cardItem.id,
+                    ...cardItem
+                  }}/>}
+              </AnimatePresence>
             )}
           </CardListContainer>
         

@@ -21,7 +21,12 @@ const CardItem:FC<CardItemProps> = (props)=> {
     onClick:handleClick
   }
   return (
-    <Container {...styledProps} >
+    <Container
+      initial={{x:-200}}
+      animate={{ x: 0 }}
+      transition={{ duration: .5 }}
+      exit={{opacity:0}}
+      {...styledProps} >
       <Name> {description} </Name>
       <Price> ${price} </Price>
     </Container>
