@@ -1,4 +1,4 @@
-import React,{ FC, useState } from 'react';
+import React,{ FC, useState,useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Theme } from 'Assets/styles/theme'
 import { IMainProps } from 'types'
@@ -18,6 +18,7 @@ import {
 import { AnimatePresence } from 'framer-motion'
 import { useDispatch } from 'react-redux'
 import { regexFiltered } from 'Controllers/App/app.actions'
+import { loadFromLocalStorage } from 'Controllers/Todo/todo.actions'
 
 const MainView:FC<IMainProps> = (props)=> {
   const {  items=[] } = props
@@ -48,8 +49,21 @@ const MainView:FC<IMainProps> = (props)=> {
     dispatch(regexFiltered(filterOption.toLocaleLowerCase()))
   }
 
+  useEffect(()=>{
+    const localItems = localStorage.getItem('appState')
+    const parsedLocalItems = JSON.parse(localItems!)
 
-
+    if(Location){
+      dispatch(loadFromLocalStorage(parsedLocalItems) )
+    }
+    // eslint-disable-next-line
+  },[])
+  useEffect(()=>{
+    localStorage.setItem(
+      'appState',
+      JSON.stringify(items)
+    )
+  })
   return (
     <ThemeProvider theme={Theme}>
       <Container>

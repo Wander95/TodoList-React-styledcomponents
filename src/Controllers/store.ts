@@ -3,15 +3,17 @@ import items from './Todo'
 import selectState from './App'
 
 import { composeWithDevTools } from 'redux-devtools-extension';
+ 
 
 
-
-const reducers = combineReducers({
+const rootReducer = combineReducers({
   items,
   selectState
 })
 
-const store = createStore(reducers, composeWithDevTools( ));
 
+const store = createStore(rootReducer, composeWithDevTools());
+
+export const persistor= ''
 
 export default store

@@ -1,5 +1,6 @@
 import { 
   ACTIVE_SWITCHED,
+  ITEMS_LOADED_FROM_LOCAL_STORAGE,
   ITEM_ADDED,
   ITEM_DELETED
 } from './todo.type';
@@ -21,6 +22,11 @@ export interface DeleteItem {
 export interface SwitchActiveItem {
   type:ACTIVE_SWITCHED,
   payload:string
+}
+
+export interface LoadFromLocalStorage {
+  type:ITEMS_LOADED_FROM_LOCAL_STORAGE,
+  payload:Array<Item>
 }
 
 
@@ -48,4 +54,13 @@ export const switchActive = (itemId:string):ItemActionType=>{
 }
 
 
-export type ItemActionType = AddItem   | SwitchActiveItem | DeleteItem;
+export const loadFromLocalStorage = (items:Array<Item>):ItemActionType=>{
+  return {
+    type:ITEMS_LOADED_FROM_LOCAL_STORAGE,
+    payload:items
+  }
+}
+
+
+
+export type ItemActionType = AddItem   | SwitchActiveItem | DeleteItem | LoadFromLocalStorage;
