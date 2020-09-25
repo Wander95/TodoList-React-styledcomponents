@@ -8,7 +8,6 @@ export interface Item {
   description:string,
   price:number,
   active:boolean,
-  status?: status.DELETED | status.ACTIVE,
 }
 
 export interface CardItemProps extends Item {

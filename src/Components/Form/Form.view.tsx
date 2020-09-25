@@ -1,5 +1,5 @@
 import React,{ FC,useRef } from 'react'
-import { Item, status } from 'types'
+import { Item } from 'types'
 import { useDispatch } from 'react-redux'
 import { 
   FormContainer,
@@ -24,8 +24,7 @@ const Form: FC = ()=> {
     dispatch(addItem({
       id:uuidv4(),
       description:values.description,
-      price:values.price,
-      status:status.ACTIVE,
+      price:values.price | 0,
       active:true
     }))
 
@@ -61,7 +60,7 @@ const Form: FC = ()=> {
                 {
                   formikProps.touched.description 
                     && formikProps.errors.description 
-                      && <div>asd</div>
+                      && <div style={{color:'white'}}>Pon algo </div>
                 }
                 <IconButton
                   type='submit'> + </IconButton>

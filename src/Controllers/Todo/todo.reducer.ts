@@ -1,9 +1,10 @@
-import { Item, status } from 'types';
+import { Item, } from 'types';
 import { 
   ACTIVE_SWITCHED,
   ITEMS_LOADED_FROM_LOCAL_STORAGE,
   ITEM_ADDED,
-  ITEM_DELETED
+  ITEM_DELETED,
+  ITEM_MODIFIED
 } from './todo.type'
 import { ItemActionType } from './todo.actions'
 
@@ -12,7 +13,6 @@ const initialState : Array<Item> = [
     id:'unico',
     description:'none',
     price:58,
-    status:status.ACTIVE,
     active:true
   }
 ]
@@ -25,6 +25,15 @@ const toDoList = (state=initialState,action:ItemActionType):Array<Item>=>{
         ...state,
         action.payload
       ]
+      case ITEM_MODIFIED:
+        return [
+          ...state.map((item)=>{
+            if(item.id === action.payload.id){
+              return action.payload
+            }
+            return item
+          })
+        ]
       case ITEM_DELETED:
         return [
           ...state.filter((item)=>{

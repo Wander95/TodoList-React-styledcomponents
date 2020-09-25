@@ -15,6 +15,12 @@ export const Container = styled.div`
   height:40rem;
   width: 20rem;
 
+  @media (max-width: 768px) {
+    height:100%;
+    width: 100%;
+    border-radius:0;
+  }
+
   ${mixins.centralize}
   flex-direction:column;
 `;
