@@ -54,5 +54,24 @@ export default {
 
     /* identical to box height */
     letter-spacing: -0.005em;
+  `,
+
+  m_input:css`
+    display:inline-block;
+    margin:1rem 0;
+    padding:.5rem;
+    border: 0;
+    outline: 0;
+    font-weight:600;
+
+    color:
+    ${({theme})=>
+      theme.colors.primary.lightBlack
+    };
+
+    border-radius:
+    ${({theme})=>
+      theme.borderRadius.light
+    }; 
   `
 }

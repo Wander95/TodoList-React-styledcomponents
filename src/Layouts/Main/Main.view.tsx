@@ -11,7 +11,8 @@ import {
   SummaryContainer,
   SummaryCount,
   SummaryPrice,
-  CardListContainer
+  CardListContainer,
+  Input
 } from './Main.styled';
 
 import { AnimatePresence } from 'framer-motion'
@@ -41,7 +42,7 @@ const MainView:FC<IMainProps> = (props)=> {
         <Card>
           
           <Header>Todo Market</Header>
-          <input type="text"/>
+          <Input type="text"/>
           <CardListContainer>
             <AnimatePresence>
             

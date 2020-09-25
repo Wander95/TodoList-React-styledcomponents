@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 import mixins from 'Assets/styles/mixins';
+import base from 'Assets/styles/base'
 
+interface IIpunt {
+  width?:string
+  padding?:string
+  marginRight?:string
+}
 
 export const Container = styled.div`
   ${mixins.centralize}
@@ -9,7 +15,16 @@ export const Container = styled.div`
   width:100%;
 `;
 
+export const Input = styled.input<IIpunt>`
+  ${base.m_input}
 
+  width:
+  ${({width})=>
+    width ? width : '8rem'
+  };
+
+
+`;
 
 
 export const Header = styled.h2`
