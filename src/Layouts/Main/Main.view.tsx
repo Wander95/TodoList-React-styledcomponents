@@ -16,7 +16,6 @@ import {
 
 import { AnimatePresence } from 'framer-motion'
 
-
 const MainView:FC<IMainProps> = (props)=> {
   const {  items=[] } = props
 
@@ -40,17 +39,20 @@ const MainView:FC<IMainProps> = (props)=> {
     <ThemeProvider theme={Theme}>
       <Container>
         <Card>
+          
           <Header>Todo Market</Header>
           <input type="text"/>
           <CardListContainer>
-            {items.length > 0 && items.map((cardItem)=>
-              <AnimatePresence>
-                  {<CardItem {...{
-                    key:cardItem.id,
-                    ...cardItem
-                  }}/>}
-              </AnimatePresence>
-            )}
+            <AnimatePresence>
+            
+            {items.length > 0 && items.map((cardItem)=>(
+              <CardItem {...{
+                key:cardItem.id,
+                ...cardItem
+              }}
+              />
+            ))}
+          </AnimatePresence>
           </CardListContainer>
         
           <SummaryContainer>
@@ -60,8 +62,9 @@ const MainView:FC<IMainProps> = (props)=> {
 
           <ButtonGroup />
           <Form />
+          
         </Card>
-      </Container>
+      </Container>  
     </ThemeProvider>
   )
 }
