@@ -1,7 +1,8 @@
 import { Item, status } from 'types';
 import { 
   ACTIVE_SWITCHED,
-  ITEM_ADDED
+  ITEM_ADDED,
+  ITEM_DELETED
 } from './todo.type'
 import { ItemActionType } from './todo.actions'
 
@@ -22,6 +23,12 @@ const toDoList = (state=initialState,action:ItemActionType):Array<Item>=>{
         ...state,
         action.payload
       ]
+      case ITEM_DELETED:
+        return [
+          ...state.filter((item)=>{
+            return item.id === action.payload
+          })
+        ]
     case ACTIVE_SWITCHED:
       return state.map((item,index):Item=>{
         if(item.id === action.payload){

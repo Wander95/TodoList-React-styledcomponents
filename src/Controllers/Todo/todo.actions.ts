@@ -1,6 +1,7 @@
 import { 
   ACTIVE_SWITCHED,
-  ITEM_ADDED
+  ITEM_ADDED,
+  ITEM_DELETED
 } from './todo.type';
 
 import { Item} from 'types'
@@ -12,11 +13,17 @@ export interface AddItem {
   payload:Item
 }
 
+export interface DeleteItem {
+  type:ITEM_DELETED,
+  payload:string
+}
 
 export interface SwitchActiveItem {
   type:ACTIVE_SWITCHED,
   payload:string
 }
+
+
 
 //*define actions
 export const addItem = (newItem:Item):ItemActionType=>(
@@ -26,6 +33,12 @@ export const addItem = (newItem:Item):ItemActionType=>(
   }
 )
 
+export const deleteItem = (itemId:string):ItemActionType=>{
+  return {
+    type:ITEM_DELETED,
+    payload:itemId
+  }
+}
 
 export const switchActive = (itemId:string):ItemActionType=>{
   return {
@@ -35,4 +48,4 @@ export const switchActive = (itemId:string):ItemActionType=>{
 }
 
 
-export type ItemActionType = AddItem   | SwitchActiveItem;
+export type ItemActionType = AddItem   | SwitchActiveItem | DeleteItem;
