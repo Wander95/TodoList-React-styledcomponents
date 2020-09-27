@@ -37,7 +37,7 @@ const toDoList = (state=initialState,action:ItemActionType):Array<Item>=>{
       case ITEM_DELETED:
         return [
           ...state.filter((item)=>{
-            return item.id === action.payload
+            return item.id !== action.payload
           })
         ]
       case ITEMS_LOADED_FROM_LOCAL_STORAGE:
