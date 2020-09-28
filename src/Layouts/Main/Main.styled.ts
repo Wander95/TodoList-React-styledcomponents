@@ -15,6 +15,16 @@ export const Container = styled.div`
   width:100%;
 `;
 
+export const InputContainer = styled.div`
+  position:relative;
+  svg{
+    color:
+    ${({theme})=>
+      theme.colors.primary.yellow
+    };
+    stroke:20px;
+  }
+`;
 export const Input = styled.input<IIpunt>`
   ${base.m_input}
 

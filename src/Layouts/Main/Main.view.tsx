@@ -12,7 +12,7 @@ import {
   SummaryCount,
   SummaryPrice,
   CardListContainer,
-  Input
+  Input, InputContainer
 } from './Main.styled';
 
 import { AnimatePresence } from 'framer-motion'
@@ -20,7 +20,7 @@ import { useDispatch } from 'react-redux'
 import { regexFiltered } from 'Controllers/App/app.actions'
 import { loadFromLocalStorage } from 'Controllers/Todo/todo.actions'
 
-
+import { Search } from '@styled-icons/material';
 
 
 const MainView:FC<IMainProps> = (props)=> {
@@ -73,7 +73,10 @@ const MainView:FC<IMainProps> = (props)=> {
         <Card>
          
           <Header>Todo Market</Header>
-          <Input type="text" onChange={handleInputChange} value={inputState}/>
+          <InputContainer>
+            <Input type="text" onChange={handleInputChange} value={inputState}/>
+            <Search size='30'/>
+          </InputContainer>
           <CardListContainer>
             <AnimatePresence>
               {
