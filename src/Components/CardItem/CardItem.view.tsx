@@ -16,6 +16,7 @@ import { useDispatch } from 'react-redux'
 import { EventInfo } from 'framer-motion';
 import { EditForm } from 'Components';
 
+import { Delete,HorizontalRule } from '@styled-icons/material';
 
 const CardItem:FC<CardItemProps> = (props)=> {
   const { description,price,active,id } = props;
@@ -41,14 +42,14 @@ const CardItem:FC<CardItemProps> = (props)=> {
     setIsButtonVisible(false);
   }
 
-  const handleDeleteClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>)=>{
+  const handleDeleteClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>)=>{
     event.stopPropagation();
     
     dispatch(deleteItem(id));
   }
 
 
-  const handleOpenModal = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>)=>{
+  const handleOpenModal = (event: React.MouseEvent<HTMLDivElement, MouseEvent>)=>{
     event.stopPropagation();
     handleModalClick(event);
   }
@@ -84,14 +85,27 @@ const CardItem:FC<CardItemProps> = (props)=> {
       exit={{opacity:0}}
       {...styledProps} 
       onHoverStart={handleOnHoverStart}
-      onHoverEnd={handleOnHoverEnd}>
+      onHoverEnd={handleOnHoverEnd}
+      onTap={handleOnHoverStart}>
 
 
 
-      {isButtonVisible && <DeleteIcon onClick={handleDeleteClick}/>}
-      {isButtonVisible && <ModifyIcon onClick={handleOpenModal}/>}
-      <Name> {description} </Name>
-      <Price> ${price} </Price>
+      
+
+      <Name> {
+      description.length > 11 
+      ? description.substr(0,9) + '...' 
+      : description
+      } </Name>
+
+      <Price> 
+        {isButtonVisible 
+        && <DeleteIcon onClick={handleDeleteClick}>{<Delete/>}</DeleteIcon>}
+
+        {isButtonVisible && 
+        <ModifyIcon onClick={handleOpenModal}><HorizontalRule size='55' /></ModifyIcon>}
+        ${price} 
+      </Price>
     </Container>
     </Fragment>
   )

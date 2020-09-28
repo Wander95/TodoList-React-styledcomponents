@@ -4,49 +4,63 @@ import { motion } from 'framer-motion';
 import base from 'Assets/styles/base';
 import Modal from 'styled-react-modal'
 
+
 export const Container = styled(motion.div)<{touched:boolean}>`
   display:flex;
-  position:relative;
   text-decoration:
   ${({touched})=>
     touched &&  css`underline line-through gray`
   };
   
   cursor: pointer;
-  margin-top:.3rem;
+  margin-top:.8rem;
 `;
 
 
-export const Name = styled(motion.span)`
+export const Name = styled.span`
   ${base.span}
   width: 13rem;
 `;
 
-export const Price = styled(motion.span)`
+export const Price = styled.span`
+  position:relative;
   ${base.span}
-  width: 4rem;
+  min-width: 2rem;
+  max-width:5rem;
 `;
 
-export const DeleteIcon = styled.button`
+export const DeleteIcon = styled.div`
   position: absolute;
-  ${base.m_iconButton}
-  width: 20px;
-  height: 20px;
-  min-width:5px;
-  min-height:5px;
-  padding:0;
+  left: -1.6rem;
+  top:0;
+  background-color:transparent;
+
+  svg{
+    z-index: 99 !important;
+    height: 1.5rem;
+    width: 1.5rem;
+    fill:#c13e46;
+  }
 `;
 
-export const ModifyIcon = styled.button`
+export const ModifyIcon = styled.div`
   position: absolute;
-  left: 0 ;
-  bottom: -1rem;
-  ${base.m_iconButton}
-  width: 20px;
-  height: 20px;
-  min-width:5px;
-  min-height:5px;
-  padding:0;
+  left: -2.6rem;
+  bottom:.2rem;
+
+  background-color:white;
+  border-radius:50%;
+  display:flex;
+  padding:.09rem;
+  justify-content:center;
+  align-items:center;
+  font-weight:900;
+  svg{
+    z-index: 99 !important;
+    height: .9rem;
+    width: .9rem;
+    fill:black;
+  }
 `;
 
 export const StyledModal = Modal.styled`
